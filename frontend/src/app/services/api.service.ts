@@ -4,7 +4,8 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
-  private base = '/api';
+  // Use direct backend URL (works in dev with CORS and in docker with nginx proxy)
+  private base = 'http://127.0.0.1:8000';
 
   constructor(private http: HttpClient) {}
 

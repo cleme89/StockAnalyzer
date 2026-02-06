@@ -5,10 +5,10 @@ from . import analysis
 
 app = FastAPI(title="StockAnalyzer API")
 
-# Enable CORS for local development / frontend
+# Enable CORS for development and deployment
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],  # Allow all origins for dev; restrict in production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
