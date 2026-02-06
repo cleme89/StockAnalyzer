@@ -1,0 +1,11 @@
+<div class="quote-card">
+  <h2>Quote</h2>
+  <div>
+    <label>Symbol: <input [(ngModel)]="symbol()" /></label>
+    <button (click)="getQuote()" [disabled]="loading()">Get</button>
+  </div>
+
+  <div *ngIf="loading()">Loading...</div>
+
+  <pre *ngIf="quote">{{ quote | json }}</pre>
+</div>
