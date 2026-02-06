@@ -2,24 +2,41 @@
 
 Progetto demo: backend in `FastAPI` per fornire API di analisi su azioni/ETF.
 
-Quick start (virtualenv):
+## Quick start (dev)
 
-```bash
-python -m venv .venv
-source .venv/Scripts/activate   # Windows: .venv\Scripts\activate
-pip install -r backend/requirements.txt
-uvicorn backend.app.main:app --reload --host 127.0.0.1 --port 8000
+### Windows PowerShell - Avvia tutto in automatico:
+```powershell
+.\dev.ps1
+```
+Apre due finestre: una col backend, una col frontend dev.
+
+### Oppure sep aratamente:
+
+**Backend (terminal 1):**
+```powershell
+cd backend
+.\run.ps1
+# Backend: http://127.0.0.1:8000
+# Swagger: http://127.0.0.1:8000/docs
 ```
 
-Quick start (docker):
+**Frontend (terminal 2):**
+```powershell
+cd frontend
+.\run.ps1
+# Frontend: http://localhost:4200
+```
+
+## Quick start (Docker)
 
 ```bash
 docker compose up --build
-# backend sarà su http://localhost:8000
-# frontend sarà su http://localhost (porta 80)
+# backend: http://localhost:8000
+# frontend: http://localhost
 ```
 
-Endpoints utili:
+## Endpoints
+
 - `GET /health`
 - `GET /quote/{symbol}`
 - `POST /analyze` body `{ "symbol":"AAPL", "start":"2025-01-01", "end":"2025-02-01", "window":20 }`

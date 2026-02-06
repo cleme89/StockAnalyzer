@@ -11,7 +11,7 @@ import { ApiService } from '../services/api.service';
   styleUrls: ['./quote.css']
 })
 export class QuoteComponent {
-  symbol = signal('AAPL');
+  symbol = 'AAPL';
   loading = signal(false);
   quote: any = null;
 
@@ -20,7 +20,7 @@ export class QuoteComponent {
   getQuote() {
     this.loading.set(true);
     this.quote = null;
-    this.api.quote(this.symbol()).subscribe({
+    this.api.quote(this.symbol).subscribe({
       next: (r) => {
         this.quote = r;
         this.loading.set(false);
