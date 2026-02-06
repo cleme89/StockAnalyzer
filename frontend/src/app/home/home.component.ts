@@ -1,4 +1,4 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { forkJoin } from 'rxjs';
 import { ApiService } from '../services/api.service';
@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
   loading = true;
   error = '';
 
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.loadMarketData();
@@ -63,11 +63,13 @@ export class HomeComponent implements OnInit {
         this.switzerlandWinners = swissWin?.stocks || [];
         this.switzerlandLosers = swissLose?.stocks || [];
         this.loading = false;
+        try { this.cdr.detectChanges(); } catch (e) { console.warn('CD detect failed', e); }
       },
       error: (err) => {
         console.error('Error loading market data:', err);
         this.error = 'Errore nel caricamento dei dati: ' + (err?.message || 'Sconosciuto');
         this.loading = false;
+        try { this.cdr.detectChanges(); } catch (e) { console.warn('CD detect failed', e); }
       }
     });
   }

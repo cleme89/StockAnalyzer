@@ -9,6 +9,15 @@
   <div *ngIf="error" class="error">{{ error }}</div>
 
   <div class="markets-grid">
+    <!-- Debug counts (quick check) -->
+    <div class="market-card" style="grid-column: 1 / -1;">
+      <h3>Debug</h3>
+      <pre>
+USA winners: {{ usaWinners?.length }}  | USA losers: {{ usaLosers?.length }}
+Milano winners: {{ milanWinners?.length }}  | Milano losers: {{ milanLosers?.length }}
+Svizzera winners: {{ switzerlandWinners?.length }}  | Svizzera losers: {{ switzerlandLosers?.length }}
+      </pre>
+    </div>
     <!-- USA Winners -->
     <div class="market-card">
       <h2>USA - Top 10</h2>
