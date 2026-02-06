@@ -43,3 +43,58 @@ async def analyze(req: AnalyzeRequest):
         return {"symbol": req.symbol.upper(), "sma": result}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/markets/usa/winners")
+async def usa_winners():
+    try:
+        result = analysis.get_market_winners("USA")
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/markets/usa/losers")
+async def usa_losers():
+    try:
+        result = analysis.get_market_losers("USA")
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/markets/milan/winners")
+async def milan_winners():
+    try:
+        result = analysis.get_market_winners("MILAN")
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/markets/milan/losers")
+async def milan_losers():
+    try:
+        result = analysis.get_market_losers("MILAN")
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/markets/switzerland/winners")
+async def switzerland_winners():
+    try:
+        result = analysis.get_market_winners("SWITZERLAND")
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/markets/switzerland/losers")
+async def switzerland_losers():
+    try:
+        result = analysis.get_market_losers("SWITZERLAND")
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+

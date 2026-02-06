@@ -1,0 +1,129 @@
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin: 0 0 10px 0;
+}
+
+.header p {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.error {
+  background: #fee;
+  border: 1px solid #fcc;
+  color: #c00;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.markets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+  gap: 25px;
+}
+
+.market-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.market-card h2 {
+  margin: 0 0 15px 0;
+  font-size: 1.3rem;
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #f8f9fa;
+}
+
+th {
+  text-align: left;
+  padding: 12px;
+  font-weight: 600;
+  color: #555;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+td {
+  padding: 11px 12px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.95rem;
+}
+
+tbody tr:hover {
+  background: #f9f9f9;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.symbol {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.price {
+  font-weight: 500;
+  color: #27ae60;
+}
+
+.positive {
+  color: #27ae60;
+  font-weight: 600;
+}
+
+.negative {
+  color: #e74c3c;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .markets-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  th, td {
+    padding: 8px;
+    font-size: 0.85rem;
+  }
+}

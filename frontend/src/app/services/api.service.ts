@@ -20,4 +20,12 @@ export class ApiService {
   analyze(body: any): Observable<any> {
     return this.http.post(`${this.base}/analyze`, body);
   }
+
+  getMarketWinners(market: string): Observable<any> {
+    return this.http.get(`${this.base}/markets/${market}/winners`);
+  }
+
+  getMarketLosers(market: string): Observable<any> {
+    return this.http.get(`${this.base}/markets/${market}/losers`);
+  }
 }

@@ -1,0 +1,162 @@
+<div class="container">
+  <header class="header">
+    <h1>Market Dashboard</h1>
+    <p>Top 10 e Bottom 10 dai principali mercati azionari</p>
+  </header>
+
+  <div *ngIf="loading" class="loading">Caricamento dati...</div>
+  
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div class="markets-grid">
+    <!-- USA Winners -->
+    <div class="market-card">
+      <h2>USA - Top 10</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Simbolo</th>
+            <th>Nome</th>
+            <th>Prezzo</th>
+            <th>Variazione</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let stock of usaWinners">
+            <td class="symbol">{{ stock.symbol }}</td>
+            <td>{{ stock.name }}</td>
+            <td class="price">${{ stock.price.toFixed(2) }}</td>
+            <td [ngClass]="getChangeClass(stock.changePercent)">
+              {{ formatChange(stock.changePercent) }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- USA Losers -->
+    <div class="market-card">
+      <h2>USA - Bottom 10</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Simbolo</th>
+            <th>Nome</th>
+            <th>Prezzo</th>
+            <th>Variazione</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let stock of usaLosers">
+            <td class="symbol">{{ stock.symbol }}</td>
+            <td>{{ stock.name }}</td>
+            <td class="price">${{ stock.price.toFixed(2) }}</td>
+            <td [ngClass]="getChangeClass(stock.changePercent)">
+              {{ formatChange(stock.changePercent) }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Milan Winners -->
+    <div class="market-card">
+      <h2>Milano - Top 10</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Simbolo</th>
+            <th>Nome</th>
+            <th>Prezzo</th>
+            <th>Variazione</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let stock of milanWinners">
+            <td class="symbol">{{ stock.symbol }}</td>
+            <td>{{ stock.name }}</td>
+            <td class="price">€{{ stock.price.toFixed(2) }}</td>
+            <td [ngClass]="getChangeClass(stock.changePercent)">
+              {{ formatChange(stock.changePercent) }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Milan Losers -->
+    <div class="market-card">
+      <h2>Milano - Bottom 10</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Simbolo</th>
+            <th>Nome</th>
+            <th>Prezzo</th>
+            <th>Variazione</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let stock of milanLosers">
+            <td class="symbol">{{ stock.symbol }}</td>
+            <td>{{ stock.name }}</td>
+            <td class="price">€{{ stock.price.toFixed(2) }}</td>
+            <td [ngClass]="getChangeClass(stock.changePercent)">
+              {{ formatChange(stock.changePercent) }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Switzerland Winners -->
+    <div class="market-card">
+      <h2>Svizzera - Top 10</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Simbolo</th>
+            <th>Nome</th>
+            <th>Prezzo</th>
+            <th>Variazione</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let stock of switzerlandWinners">
+            <td class="symbol">{{ stock.symbol }}</td>
+            <td>{{ stock.name }}</td>
+            <td class="price">CHF {{ stock.price.toFixed(2) }}</td>
+            <td [ngClass]="getChangeClass(stock.changePercent)">
+              {{ formatChange(stock.changePercent) }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Switzerland Losers -->
+    <div class="market-card">
+      <h2>Svizzera - Bottom 10</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Simbolo</th>
+            <th>Nome</th>
+            <th>Prezzo</th>
+            <th>Variazione</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let stock of switzerlandLosers">
+            <td class="symbol">{{ stock.symbol }}</td>
+            <td>{{ stock.name }}</td>
+            <td class="price">CHF {{ stock.price.toFixed(2) }}</td>
+            <td [ngClass]="getChangeClass(stock.changePercent)">
+              {{ formatChange(stock.changePercent) }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
